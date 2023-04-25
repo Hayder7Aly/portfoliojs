@@ -24,12 +24,7 @@ const App = () => {
 
   const {isDataInit, loading, testimonials} = useSelector(dataSelector)
 
-  if(isDataInit) {
-    console.log("Less go")
-    console.log(testimonials)
-  }else{
-    console.log("noooooooo")
-  }
+
 
   // const loading = false;
 
