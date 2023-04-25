@@ -1,9 +1,21 @@
 import api from "../api/portfolio";
 
-const getAllData = () => {
-  return api.get("/contacts");
+const getOverviewData = () => {
+  return api.get("/portfolio-overview");
 };
 
+const getProjectsData = () => {
+  return api.get("/projects")
+}
+
+const getExperienceData = () => {
+  return api.get("/experiences")
+}
+
+const getTestimonialsData = () => {
+  return api.get("/testimonials")
+}
 
 
-export default getAllData
+
+export {getOverviewData,getProjectsData,getExperienceData,getTestimonialsData} 

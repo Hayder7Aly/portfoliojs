@@ -1,31 +1,37 @@
 import { BrowserRouter } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { dataSelector, reterieveAllData } from "./slice/portfolioSlice";
+import { dataSelector, reterieveExperienceData, reterieveOverviewData, reterieveProjectsData, reterieveTestimonialsData } from "./slice/portfolioSlice";
 
 import { About, Contact, Experience, Feedbacks, Hero, Navbar, Tech, Works, StarsCanvas } from "./components";
 import { useEffect } from "react";
-// import { useEffect } from "react";
+
 
 const App = () => {
 
-  // debugger;'
+  // debugger;
 
   const dispatch = useDispatch();
 
 
   useEffect(() => {
-    dispatch(reterieveAllData())
+    dispatch(reterieveOverviewData())
+    dispatch(reterieveExperienceData())
+    dispatch(reterieveProjectsData())
+    dispatch(reterieveTestimonialsData())
 
 
   }, [dispatch])
 
-  const {isDataInit, loading} = useSelector(dataSelector)
+  const {isDataInit, loading, testimonials} = useSelector(dataSelector)
 
   if(isDataInit) {
     console.log("Less go")
+    console.log(testimonials)
   }else{
     console.log("noooooooo")
   }
+
+  // const loading = false;
 
 
 
@@ -33,7 +39,7 @@ const App = () => {
     <BrowserRouter>
 
 {
-     loading ? "" :
+     loading  ? "":
 
       <div className='relative z-0 bg-primary'>
         <div className='bg-hero-pattern bg-cover bg-no-repeat bg-center'>
