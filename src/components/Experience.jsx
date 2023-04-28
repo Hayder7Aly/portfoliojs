@@ -8,9 +8,11 @@ import { motion } from "framer-motion";
 import "react-vertical-timeline-component/style.min.css";
   
 import { styles } from "../styles";
-import { experiences } from "../constants";
+// import { experiences } from "../constants";
 import { SectionWrapper } from "../hoc";
 import { textVariant } from "../utils/motion";
+import { useSelector } from "react-redux";
+import { dataSelector } from "../slice/portfolioSlice";
 
 const ExperienceCard = ({ experience }) => {
   return (
@@ -57,6 +59,9 @@ const ExperienceCard = ({ experience }) => {
 };
 
 const Experience = () => {
+
+  const { experiences } = useSelector(dataSelector)
+
   return (
     <>
       <motion.div variants={textVariant()}>

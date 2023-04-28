@@ -40,7 +40,7 @@ export const navLinks = [
   },
 ];
 
-const services = [
+const services2 = [
   {
     title: "Web Developer",
     icon: web,
@@ -262,4 +262,4 @@ const projects = [
   },
 ];
 
-export { services, technologies, experiences, testimonials, projects };
+export { services2, technologies, experiences, testimonials, projects };

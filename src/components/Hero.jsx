@@ -2,8 +2,23 @@ import { motion } from "framer-motion";
 
 import { styles } from "../styles";
 import { ComputersCanvas } from "./canvas";
+import { useSelector } from "react-redux";
+import { dataSelector } from "../slice/portfolioSlice";
 
 const Hero = () => {
+
+  const {overview_data: {front_title}} = useSelector(dataSelector)
+
+  function breakSentence(sentence) {
+    const words = sentence.trim().split(/\s+/);
+    const first5Words = words.slice(0, 5).join(' ');
+    const restOfSentence = words.slice(5).join(' ');
+    return { first5Words, restOfSentence };
+  }
+
+  const title = breakSentence(front_title)
+  
+
   return (
     <section className={`relative w-full h-screen mx-auto`}>
       <div
@@ -19,8 +34,8 @@ const Hero = () => {
             Hi, I'm <span className='text-[#915EFF]'>Hyder</span>
           </h1>
           <p className={`${styles.heroSubText} mt-2 text-white-100`}>
-            I develop 3D visuals, user <br className='sm:block hidden' />
-            interfaces and web applications
+            {title.first5Words}, <br className='sm:block hidden' />
+            {title.restOfSentence}
           </p>
         </div>
       </div>

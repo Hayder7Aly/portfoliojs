@@ -5,18 +5,24 @@ import { motion } from "framer-motion";
 import { styles } from "../styles";
 import { github } from "../assets";
 import { SectionWrapper } from "../hoc";
-import { projects } from "../constants";
+// import { projects } from "../constants";
 import { fadeIn, textVariant } from "../utils/motion";
+import { useSelector } from "react-redux";
+import { dataSelector } from "../slice/portfolioSlice";
 
 const ProjectCard = ({
   index,
   name,
-  description,
+  discription,
   tags,
-  image,
+  images,
   source_code_link,
+  project_link
 }) => {
+  // const tagswithNewAddition = 
   return (
+    <a href={project_link} target="_blank">
+
     <motion.div variants={fadeIn("up", "spring", index * 0.5, 0.75)}>
       <Tilt
         options={{
@@ -28,7 +34,7 @@ const ProjectCard = ({
       >
         <div className='relative w-full h-[230px]'>
           <img
-            src={image}
+            src={images[0]}
             alt='project_image'
             className='w-full h-full object-cover rounded-2xl'
           />
@@ -49,7 +55,7 @@ const ProjectCard = ({
 
         <div className='mt-5'>
           <h3 className='text-white font-bold text-[24px]'>{name}</h3>
-          <p className='mt-2 text-secondary text-[14px]'>{description}</p>
+          <p className='mt-2 text-secondary text-[14px]'>{discription}</p>
         </div>
 
         <div className='mt-4 flex flex-wrap gap-2'>
@@ -64,10 +70,23 @@ const ProjectCard = ({
         </div>
       </Tilt>
     </motion.div>
+    </a>
+
   );
 };
 
 const Works = () => {
+
+  const {projects} = useSelector(dataSelector)
+
+
+
+  
+
+
+  
+  
+
   return (
     <>
       <motion.div variants={textVariant()}>

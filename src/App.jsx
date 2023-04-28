@@ -22,7 +22,9 @@ const App = () => {
 
   }, [dispatch])
 
-  const {isDataInit, loading, testimonials} = useSelector(dataSelector)
+  const data= useSelector(dataSelector)
+
+  // console.log(data.overview_data)
 
 
 
@@ -34,7 +36,7 @@ const App = () => {
     <BrowserRouter>
 
 {
-     loading  ? "":
+     data.loading  ? "":
 
       <div className='relative z-0 bg-primary'>
         <div className='bg-hero-pattern bg-cover bg-no-repeat bg-center'>

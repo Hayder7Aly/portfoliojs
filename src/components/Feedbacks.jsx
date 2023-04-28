@@ -5,13 +5,14 @@ import { styles } from "../styles";
 import { SectionWrapper } from "../hoc";
 import { fadeIn, textVariant } from "../utils/motion";
 import { testimonials } from "../constants";
+import { useSelector } from "react-redux";
+import { dataSelector } from "../slice/portfolioSlice";
 
 const FeedbackCard = ({
   index,
-  testimonial,
+  description,
   name,
-  designation,
-  company,
+  role,
   image,
 }) => (
   <motion.div
@@ -21,7 +22,7 @@ const FeedbackCard = ({
     <p className='text-white font-black text-[48px]'>"</p>
 
     <div className='mt-1'>
-      <p className='text-white tracking-wider text-[18px]'>{testimonial}</p>
+      <p className='text-white tracking-wider text-[18px]'>{description}</p>
 
       <div className='mt-7 flex justify-between items-center gap-1'>
         <div className='flex-1 flex flex-col'>
@@ -29,7 +30,7 @@ const FeedbackCard = ({
             <span className='blue-text-gradient'>@</span> {name}
           </p>
           <p className='mt-1 text-secondary text-[12px]'>
-            {designation} of {company}
+            {role}
           </p>
         </div>
 
@@ -44,6 +45,8 @@ const FeedbackCard = ({
 );
 
 const Feedbacks = () => {
+  const {testimonials} = useSelector(dataSelector)
+
   return (
     <div className={`mt-12 bg-black-100 rounded-[20px]`}>
       <div
@@ -56,7 +59,7 @@ const Feedbacks = () => {
       </div>
       <div className={`-mt-20 pb-14 ${styles.paddingX} flex flex-wrap gap-7`}>
         {testimonials.map((testimonial, index) => (
-          <FeedbackCard key={testimonial.name} index={index} {...testimonial} />
+          <FeedbackCard key={index} index={index} {...testimonial} />
         ))}
       </div>
     </div>
