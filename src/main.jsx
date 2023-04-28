@@ -10,11 +10,9 @@ import Loading from "./components/Loading";
 const App = lazy(() => import("./App"));
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  // <React.StrictMode>
   <Provider store={store}>
     <Suspense fallback={<Loading />}>
       <App />
     </Suspense>
   </Provider>
-  // </React.StrictMode>
 );

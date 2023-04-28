@@ -24,11 +24,7 @@ const App = () => {
 
   const data= useSelector(dataSelector)
 
-  // console.log(data.overview_data)
 
-
-
-  // const loading = false;
 
 
 
