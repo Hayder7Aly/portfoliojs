@@ -6,6 +6,7 @@ import { SectionWrapper } from "../hoc";
 import { fadeIn, textVariant } from "../utils/motion";
 import { useSelector } from "react-redux";
 import { dataSelector } from "../slice/portfolioSlice";
+import userImg from "../assets/user.jpg"
 
 const FeedbackCard = ({
   index,
@@ -34,7 +35,7 @@ const FeedbackCard = ({
         </div>
 
         <img
-          src={image}
+          src={image ? image : userImg}
           alt={`feedback_by-${name}`}
           className='w-10 h-10 rounded-full object-cover'
         />
