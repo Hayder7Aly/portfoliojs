@@ -7,8 +7,7 @@ import {dataSelector} from "../slice/portfolioSlice"
 
 const Tech = () => {
   const {overview_data : {stacks}} = useSelector(dataSelector)
-  console.log(stacks
-    )
+ 
 
   return (
     <div className='flex flex-row flex-wrap justify-center gap-10'>
